@@ -5,12 +5,24 @@ import './App.css'
 import CVMaker from './components/CVMaker'
 import CVViewer from './components/CVViewer'
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [CV, setCV] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    location: '',
+    portfolio: '',
+  })
+  function handleChange(e) {
+    setCV({
+      ...CV,
+      [e.target.name]: e.target.value
+    })
+  }
   return (
     <>
-      <CVMaker />
-        <CVViewer />
+      <CVMaker handleChange={handleChange}/>
+      
+        <CVViewer CV={CV}/>
 
     </>
   )
