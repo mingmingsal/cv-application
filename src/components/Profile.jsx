@@ -1,18 +1,18 @@
 import React from 'react'
 
-const Profile = ({onNameChange,onEmailChange,onPhoneChange,onLocationChange,onPortfolioChange}) => {
+const Profile = ({onChange}) => {
   return (
     <form>
         <label>Name</label>
-        <input name='name' type='text' onChange={onNameChange}></input>
+        <input name='name' type='text' onChange={onChange}></input>
         <label>Email</label>
-        <input name='email' type='text' onChange={onEmailChange}></input>
+        <input name='email' type='text' onChange={onChange}></input>
         <label>Phone Number</label>
-        <input name='phone' type='text' onChange={onPhoneChange}></input>
+        <input name='phone' type='text' onChange={onChange}></input>
         <label>Location</label>
-        <input name='location' type='text' onChange={onLocationChange}></input>
+        <input name='location' type='text' onChange={onChange}></input>
         <label>Portfolio</label>
-        <input name='portfolio' type='text' onChange={onPortfolioChange}></input>
+        <input name='portfolio' type='text' onChange={onChange}></input>
     </form>
   )
 }
