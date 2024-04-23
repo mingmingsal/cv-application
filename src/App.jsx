@@ -10,14 +10,20 @@ function App() {
     location: '',
     portfolio: '',
     school: [{
-      id:0,
-      schoolName:'',
-      schoolLocation:'',
+      id: 0,
+      schoolName: '',
+      schoolLocation: '',
     }
     ],
     skills: [{
-
-    }]
+      id: 0,
+    }],
+    work: [{
+      id: 0,
+    }],
+    projects: [{
+      id: 0,
+    }],
 
   })
   function handleChange(e) {
@@ -26,40 +32,77 @@ function App() {
       [e.target.name]: e.target.value
     })
   }
-  function addSchool(){
-    const newId = CV.school.length;
-    const newSchool = [...CV.school,{id:newId}]
-    setCV({
-      ...CV,
-      school:newSchool
-    })
-    return newId;
+
+  function addPart(part) {
+    if (part === "school") {
+      const newId = CV.school.length;
+      const newPart = [...CV.school, { id: newId }]
+      setCV({
+        ...CV,
+        school: newPart
+      })
+    }
+    else if (part === "work") {
+      const newId = CV.work.length;
+      const newPart = [...CV.work, { id: newId }]
+      setCV({
+        ...CV,
+        work: newPart
+      })
+    }
   }
-  function deleteSchool(id){
-    const newSchool = CV.school.filter(schoo => schoo.id !== id)
+
+  function deletePart(id, part) {
+    if(part=="school"){
+      const newPart = CV.school.filter(school => school.id !== id)
     setCV({
-      ...CV, school:newSchool
+      ...CV, school: newPart
     })
+    }
+    else if(part=="work"){
+      const newPart = CV.work.filter(work => work.id !== id)
+    setCV({
+      ...CV, work: newPart
+    })
+    }
   }
-  function handleSchoolChange(e, index) {
-    const big = CV.school.map((schoo) => {
-        if(schoo.id == index){
+  function handlePartChange(e, index, part) {
+    if(part=="school"){
+      const big = CV.school.map((school) => {
+        if (school.id == index) {
           return {
-            ...schoo,
+            ...school,
             [e.target.name]: e.target.value
           }
-
+  
         }
-        else return schoo;
-    })
-    setCV({
-      ...CV,
-      school:big,
-    })
+        else return part;
+      })
+      setCV({
+        ...CV,
+        school: big,
+      })
+    }
+    else if(part=="work"){
+      const big = CV.work.map((work) => {
+        if (work.id == index) {
+          return {
+            ...work,
+            [e.target.name]: e.target.value
+          }
+  
+        }
+        else return part;
+      })
+      setCV({
+        ...CV,
+        work: big,
+      })
+    }
   }
   return (
     <>
-      <CVMaker handleChange={handleChange} handleSchoolChange={handleSchoolChange} addSchool={addSchool} deleteSchool={deleteSchool} CV={CV}/>
+      <CVMaker handleChange={handleChange} handlePartChange={handlePartChange} addPart={addPart} deletePart={deletePart} CV={CV} />
 
       <CVViewer CV={CV} />
 
