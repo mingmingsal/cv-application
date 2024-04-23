@@ -76,7 +76,7 @@ function App() {
           }
   
         }
-        else return part;
+        else return school;
       })
       setCV({
         ...CV,
@@ -92,7 +92,7 @@ function App() {
           }
   
         }
-        else return part;
+        else return work;
       })
       setCV({
         ...CV,

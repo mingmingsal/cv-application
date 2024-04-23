@@ -11,14 +11,16 @@ const CVMaker = ({handleProfileChange, handlePartChange, addPart, deletePart, CV
       {
         
         CV.school.map((school) => {
-          return <Education key={`school${school.id}`} onChange={handlePartChange} id={school.id} deletePart={()=>deletePart(school.id,"school")}/>
+          const partId = school.id;
+          return <Education key={`school${partId}`} onChange={handlePartChange} id={partId} deletePart={()=>deletePart(partId,"school")}/>
       })
       }
       <button onClick={()=>addPart("school")}>Add Education</button>
 
       {
         CV.work.map((work) => {
-          return <Work key={`work${work.id}`} onChange={handlePartChange} id={work.id} deletePart={()=>deletePart(work.id,"work")}/>
+          const partId = work.id;
+          return <Work key={`work${partId}`} onChange={handlePartChange} id={partId} deletePart={()=>deletePart(partId,"work")}/>
       })
       } 
       <button onClick={()=>addPart("work")}>Add Work</button>
