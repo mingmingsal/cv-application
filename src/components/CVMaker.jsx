@@ -3,7 +3,6 @@ import Profile from './Profile'
 import Education from './Education'
 import Work from './Work'
 const CVMaker = ({handleProfileChange, handlePartChange, addPart, deletePart, CV}) => {
-  console.log(CV.school);
   return (
     <>
       <Profile onChange={handleProfileChange} />
