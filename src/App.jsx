@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
 import './App.css'
 import CVMaker from './components/CVMaker'
 import CVViewer from './components/CVViewer'
@@ -9,6 +11,7 @@ function App() {
     phone: '',
     location: '',
     portfolio: '',
+<<<<<<< HEAD
     school: [{
       id: 0,
       schoolName: '',
@@ -25,6 +28,8 @@ function App() {
       id: 0,
     }],
 
+=======
+>>>>>>> parent of 1c721ed (Added Education Logic)
   })
   function handleChange(e) {
     setCV({
@@ -32,6 +37,7 @@ function App() {
       [e.target.name]: e.target.value
     })
   }
+<<<<<<< HEAD
 
   function addPart(part) {
     if (part === "school") {
@@ -74,7 +80,6 @@ function App() {
             ...school,
             [e.target.name]: e.target.value
           }
-  
         }
         else return part;
       })
@@ -105,6 +110,13 @@ function App() {
       <CVMaker handleChange={handleChange} handlePartChange={handlePartChange} addPart={addPart} deletePart={deletePart} CV={CV} />
 
       <CVViewer CV={CV} />
+=======
+  return (
+    <>
+      <CVMaker handleChange={handleChange}/>
+      
+        <CVViewer CV={CV}/>
+>>>>>>> parent of 1c721ed (Added Education Logic)
 
     </>
   )

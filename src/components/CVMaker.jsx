@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Profile from './Profile'
+<<<<<<< HEAD
 import Education from './Education'
 import Work from './Work'
 const CVMaker = ({handleProfileChange, handlePartChange, addPart, deletePart, CV}) => {
@@ -22,6 +23,13 @@ const CVMaker = ({handleProfileChange, handlePartChange, addPart, deletePart, CV
       })
       } 
       <button onClick={()=>addPart("work")}>Add Work</button>
+=======
+const CVMaker = ({handleChange}) => {
+  
+  return (
+    <>
+      <Profile onChange={handleChange} />
+>>>>>>> parent of 1c721ed (Added Education Logic)
     </>
 
   )

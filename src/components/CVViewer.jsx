@@ -1,9 +1,10 @@
 
-const CVViewer = ({ CV }) => {
+const CVViewer = ({CV}) => {
   return (
-
+    
     <div>
       {`${CV.name},${CV.email},${CV.phone},${CV.location},${CV.portfolio}`}
+<<<<<<< HEAD
       <h1>Education</h1>
       {
         CV.school.map((school) => {
@@ -35,6 +36,8 @@ const CVViewer = ({ CV }) => {
           )
         })
       }
+=======
+>>>>>>> parent of 1c721ed (Added Education Logic)
     </div>
   )
 }
