@@ -26,6 +26,7 @@ function App() {
     }],
 
   })
+
   function handleChange(e) {
     setCV({
       ...CV,
@@ -34,71 +35,75 @@ function App() {
   }
 
   function addPart(part) {
-    if (part === "school") {
-      const newId = CV.school[CV.school.length - 1].id + 1;
-      const newPart = [...CV.school, { id: newId }]
-      setCV({
-        ...CV,
-        school: newPart
-      })
-    }
-    else if (part === "work") {
-      const newId = CV.work[CV.work.length - 1].id + 1;
-      const newPart = [...CV.work, { id: newId }]
-      setCV({
-        ...CV,
-        work: newPart
-      })
-    }
+    let param = null;
+    if (part === "school") param = CV.school;
+    else if (part === "work") param = CV.work;
+    else if (part === "work") param = CV.projects;
+
+    const newId = param.length === 0 ? 0 : param[param.length - 1].id + 1;
+    const newPart = [...param, { id: newId }]
+    
+    if (part === "school") { setCV({ ...CV, school: newPart }) }
+    else if (part === "work") { setCV({ ...CV, work: newPart }) }
+    else if (part === "projects") { setCV({ ...CV, projects: newPart }) }
   }
 
   function deletePart(id, part) {
     if (part == "school") {
       const newPart = CV.school.filter(school => school.id !== id)
-      setCV({
-        ...CV, school: newPart
-      })
+      setCV({ ...CV, school: newPart })
     }
+
     else if (part == "work") {
       const newPart = CV.work.filter(work => work.id !== id)
-      setCV({
-        ...CV, work: newPart
-      })
+      setCV({ ...CV, work: newPart })
+    }
+
+    else if (part == "projects") {
+      const newPart = CV.projects.filter(projects => projects.id !== id)
+      setCV({ ...CV, projects: newPart })
     }
   }
   function handlePartChange(e, index, part) {
+    let change = null;
     if (part == "school") {
-      const big = CV.school.map((school) => {
-        if (school.id == index) {
-          return {
-            ...school,
-            [e.target.name]: e.target.value
-          }
-
+      change = CV.school;
+    }
+    else if (part == "work") {
+      change = CV.work;
+    }
+    else if (part == "projects") {
+      change = CV.projects;
+    }
+    const big = change.map((part) => {
+      if (part.id == index) {
+        return {
+          ...part,
+          [e.target.name]: e.target.value
         }
-        else return school;
-      })
+
+      }
+      else return part;
+    })
+    if (part == "school") {
       setCV({
         ...CV,
         school: big,
       })
     }
     else if (part == "work") {
-      const big = CV.work.map((work) => {
-        if (work.id == index) {
-          return {
-            ...work,
-            [e.target.name]: e.target.value
-          }
-
-        }
-        else return work;
-      })
       setCV({
         ...CV,
         work: big,
       })
     }
+    else if (part == "projects") {
+      setCV({
+        ...CV,
+        projects: big,
+      })
+    }
+
   }
   return (
     <>

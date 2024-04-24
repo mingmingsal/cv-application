@@ -4,7 +4,7 @@ const CVViewer = ({CV}) => {
     
     <div>
       {`${CV.name},${CV.email},${CV.phone},${CV.location},${CV.portfolio}`}
-      <h1>Education</h1>
+      {CV.school.length > 0 && <h1>Education</h1>}
       {
         CV.school.map((school) => {
           return (
@@ -20,7 +20,7 @@ const CVViewer = ({CV}) => {
           )
         })
       }
-      <h1>Work Experience</h1>
+      {CV.work.length > 0 && <h1>Work Experience</h1>}
       {
         CV.work.map((work) => {
           return (

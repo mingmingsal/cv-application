@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Profile from './Profile'
 import Education from './Education'
+import Projects from './Projects'
 import Work from './Work'
 const CVMaker = ({handleProfileChange, handlePartChange, addPart, deletePart, CV}) => {
   return (
@@ -23,6 +24,7 @@ const CVMaker = ({handleProfileChange, handlePartChange, addPart, deletePart, CV
       })
       } 
       <button onClick={()=>addPart("work")}>Add Work</button>
+      
     </>
 
   )
